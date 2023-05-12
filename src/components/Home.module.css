@@ -1,0 +1,29 @@
+.cartaz {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.filme {
+  position: relative;
+}
+
+.imgCartaz {
+  width: 100%;
+  height: 25rem;
+  cursor: pointer;
+  
+}
+
+.sobre {
+  position: absolute;
+  bottom: 3px;
+  background-color: blue;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+}
+
+.imgCartaz:hover .sobre {
+  display: block;
+}
