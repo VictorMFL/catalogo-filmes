@@ -5,20 +5,22 @@ import axios from "axios";
 import styles from "./Home.module.css";
 
 // Api
-import { primeiraChamada } from "../api/api";
+import { autorizacao } from "../api/api";
 
 // Interface
 import { DataProps } from "../interface/interface";
+
+import { Link } from "react-router-dom";
+import Footer from "./Footer";
 
 type StateProps = {
   data: DataProps[];
   setData: React.Dispatch<React.SetStateAction<DataProps[]>>;
 };
 
-const page = 1;
-
 const Home = ({ data, setData }: StateProps) => {
   const [hoveredId, setHoveredId] = React.useState<number | null>(null);
+  const [page, setPage] = React.useState(1)
 
   const handleMouseEnter = (id: number) => {
     setHoveredId(id);
@@ -33,7 +35,7 @@ const Home = ({ data, setData }: StateProps) => {
     try {
       const response = await axios.get(
         `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=true&language=pt-BR&page=${pageString}&sort_by=popularity.desc`,
-        primeiraChamada
+        autorizacao
       );
       const data = response.data;
       setData([data]);
@@ -64,11 +66,16 @@ const Home = ({ data, setData }: StateProps) => {
                 alt={`poster do filme ${res.title}`}
                 className={styles.imgCartaz}
               />
-              {hoveredId === res.id && <p className={styles.sobre}>Ver mais</p>}
+              {hoveredId === res.id && (
+                <div className={styles.sobre}>
+                  <Link to={String(res.id)} onClick={() => window.localStorage.setItem("Filme", String(res.id))}>Ver mais</Link>
+                </div>
+              )}
             </div>
           ))}
         </div>
       ))}
+      <Footer setData={setData} />
     </>
   );
 };

@@ -1,4 +1,4 @@
-export const primeiraChamada = {
+export const autorizacao = {
   method: 'GET',
   headers: {
     accept: 'application/json',
