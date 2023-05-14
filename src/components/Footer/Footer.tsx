@@ -1,11 +1,11 @@
 import React from "react";
 
 import { PaginationControl } from "react-bootstrap-pagination-control";
-import { DataProps } from "../interface/interface";
+import { DataProps } from "../../interface/interface";
 
 import axios from "axios";
 
-import { autorizacao } from "../api/api";
+import { autorizacao } from "../../api/api";
 
 type PageNumProps = {
   setData: React.Dispatch<React.SetStateAction<DataProps[]>>;

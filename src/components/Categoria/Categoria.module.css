@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.categoria {
+  text-decoration: none;
+  color: #000;
+  margin: 10px 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  background-color: aliceblue;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}

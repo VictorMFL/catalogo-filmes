@@ -19,3 +19,8 @@ interface ResultsProps {
   vote_average: number;
   vote_count: number;
 }
+
+export interface CategoriaProps {
+  id: number;
+  name: string;
+}

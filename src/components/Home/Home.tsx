@@ -5,13 +5,12 @@ import axios from "axios";
 import styles from "./Home.module.css";
 
 // Api
-import { autorizacao } from "../api/api";
+import { autorizacao } from "../../api/api";
 
 // Interface
-import { DataProps } from "../interface/interface";
+import { DataProps } from "../../interface/interface";
 
 import { Link } from "react-router-dom";
-import Footer from "./Footer";
 
 type StateProps = {
   data: DataProps[];
@@ -20,7 +19,7 @@ type StateProps = {
 
 const Home = ({ data, setData }: StateProps) => {
   const [hoveredId, setHoveredId] = React.useState<number | null>(null);
-  const [page, setPage] = React.useState(1)
+  const [page, setPage] = React.useState(1);
 
   const handleMouseEnter = (id: number) => {
     setHoveredId(id);
@@ -68,14 +67,20 @@ const Home = ({ data, setData }: StateProps) => {
               />
               {hoveredId === res.id && (
                 <div className={styles.sobre}>
-                  <Link to={String(res.id)} onClick={() => window.localStorage.setItem("Filme", String(res.id))}>Ver mais</Link>
+                  <Link
+                    to={`/catalogo-filmes/filme/${String(res.id)}`}
+                    onClick={() =>
+                      window.localStorage.setItem("Filme", String(res.id))
+                    }
+                  >
+                    Ver mais
+                  </Link>
                 </div>
               )}
             </div>
           ))}
         </div>
       ))}
-      <Footer setData={setData} />
     </>
   );
 };

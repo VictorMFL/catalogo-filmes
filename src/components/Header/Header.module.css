@@ -1,0 +1,21 @@
+.header {
+  height: 5rem;
+  padding: 0 5rem;
+  background-color: #d3d3d3;
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+
+.header p {
+  font-weight: bold;
+}
+
+.filmes, .categoria {
+  text-decoration: none;
+  color: #000;
+}

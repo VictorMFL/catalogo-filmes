@@ -5,6 +5,10 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+body {
+  padding-top: 5rem;
+}
+
 /* Footer */
 footer {
   height: 8rem;

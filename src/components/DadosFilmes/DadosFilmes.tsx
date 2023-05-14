@@ -2,7 +2,7 @@ import React from "react";
 
 import axios from "axios";
 
-import { autorizacao } from "../api/api";
+import { autorizacao } from "../../api/api";
 
 const DadosFilmes = () => {
   const [data, setData] = React.useState<any>();
@@ -14,8 +14,8 @@ const DadosFilmes = () => {
         `https://api.themoviedb.org/3/movie/${idFilme}?language=pt-BR`,
         autorizacao
       );
-      const data = response.data
-      console.log(data)
+      const data = response.data;
+      console.log(data);
       setData(data);
     } catch (error) {
       console.log(error);
