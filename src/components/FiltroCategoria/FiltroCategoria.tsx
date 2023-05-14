@@ -65,7 +65,7 @@ const FiltroCategoria = () => {
             {hoveredId === res.id && (
               <div className={styles.sobre}>
                 <Link
-                  to={`/dados-filmes/filme/${String(res.id)}`}
+                  to={`/catalogo-filmes/filme/${String(res.id)}`}
                   onClick={() =>
                     window.localStorage.setItem("Filme", String(res.id))
                   }
