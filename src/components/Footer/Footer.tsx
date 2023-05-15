@@ -5,7 +5,7 @@ import { DataProps } from "../../interface/interface";
 
 import axios from "axios";
 
-import { autorizacao } from "../../api/api";
+import { authorization } from "../../api/api";
 
 type PageNumProps = {
   setData: React.Dispatch<React.SetStateAction<DataProps[]>>;
@@ -15,11 +15,11 @@ const Footer = ({ setData }: PageNumProps) => {
   const [pageNum, setPageNum] = React.useState(1);
 
   async function get() {
-    const pageString = String(pageNum);
+    const page = String(pageNum);
     try {
       const response = await axios.get(
-        `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=true&language=pt-BR&page=${pageString}&sort_by=popularity.desc`,
-        autorizacao
+        `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=true&language=pt-BR&page=${page}&sort_by=popularity.desc`,
+        authorization
       );
       const data = response.data;
       setData([data]);

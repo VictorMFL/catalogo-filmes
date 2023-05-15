@@ -11,7 +11,7 @@
   font-weight: 600;
 }
 
-.filme {
+.movie {
   position: relative;
   height: 27rem;
 }
@@ -23,7 +23,7 @@
   border-radius: 6px;
 }
 
-.sobre {
+.about {
   position: absolute;
   bottom: 32px;
   background-color: #9dbafd;
@@ -34,16 +34,16 @@
   border-bottom-right-radius: 5px;
 }
 
-.sobre a {
+.about a {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
 }
 
-.sobre a:hover {
+.about a:hover {
   text-decoration: underline;
 }
 
-.imgCartaz:hover .sobre {
+.imgCartaz:hover .about {
   display: block;
 }

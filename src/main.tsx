@@ -4,9 +4,9 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
-import DadosFilmes from "./components/DadosFilmes/DadosFilmes";
-import Categorias from "./components/Categoria/Categorias";
-import FiltroCategoria from "./components/FiltroCategoria/FiltroCategoria";
+import DadosFilmes from "./components/MovieData/MovieData";
+import Categorias from "./components/Genre/Genre";
+import FiltroCategoria from "./components/GenreFilter/GenreFilter";
 
 import "./index.css";
 

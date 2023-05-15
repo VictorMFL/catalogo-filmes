@@ -15,7 +15,7 @@
   font-weight: bold;
 }
 
-.filmes, .categoria {
+.header a {
   text-decoration: none;
   color: #000;
 }

@@ -20,24 +20,24 @@ interface ResultsProps {
   vote_count: number;
 }
 
-export interface CategoriaProps {
+export interface GenreProps {
   id: number;
   name: string;
 }
 
-export interface FilmeProps {
+export interface MovieProps {
   adult: boolean;
   backdrop_path: string;
   belongs_to_collection? : ColectionProps[];
   budget: number;
-  genres:  Generos[];
+  genres:  GenreProps[];
   id: number;
   original_language: string;
   original_title: string;
   overview: string;
   popularity: number;
   poster_path: string;
-  production_companies: ProductionCompanies[];
+  production_companies: ProductionCompaniesProps[];
   release_date: string;
   revenue: number;
   runtime: number;
@@ -56,19 +56,14 @@ interface ColectionProps {
   poster_path: string;
 }
 
-interface Generos {
-  id: number;
-  name: string;
-}
-
-interface ProductionCompanies {
+interface ProductionCompaniesProps {
   id: number;
   logo_path: string | null;
   name: string;
   origin_country: string;
 }
 
-interface ProductionCountries {
+interface ProductionCountriesPropsw {
   iso_3166_1: string;
   name: string;
 }

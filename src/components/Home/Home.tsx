@@ -5,7 +5,7 @@ import axios from "axios";
 import styles from "./Home.module.css";
 
 // Api
-import { autorizacao } from "../../api/api";
+import { authorization } from "../../api/api";
 
 // Interface
 import { DataProps } from "../../interface/interface";
@@ -30,11 +30,11 @@ const Home = ({ data, setData }: StateProps) => {
   };
 
   async function get() {
-    const pageString = String(page);
+    const pageNum = String(page);
     try {
       const response = await axios.get(
-        `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=true&language=pt-BR&page=${pageString}&sort_by=popularity.desc`,
-        autorizacao
+        `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=true&language=pt-BR&page=${pageNum}&sort_by=popularity.desc`,
+        authorization
       );
       const data = response.data;
       setData([data]);
@@ -56,7 +56,7 @@ const Home = ({ data, setData }: StateProps) => {
           {i.results.map((res) => (
             <div
               key={res.id}
-              className={styles.filme}
+              className={styles.movie}
               onMouseEnter={() => handleMouseEnter(res.id)}
               onMouseLeave={handleMouseLeave}
             >
@@ -66,11 +66,11 @@ const Home = ({ data, setData }: StateProps) => {
                 className={styles.imgCartaz}
               />
               {hoveredId === res.id && (
-                <div className={styles.sobre}>
+                <div className={styles.about}>
                   <Link
                     to={`/catalogo-filmes/filme/${String(res.id)}`}
                     onClick={() =>
-                      window.localStorage.setItem("Filme", String(res.id))
+                      window.localStorage.setItem("Movie", String(res.id))
                     }
                   >
                     Ver mais

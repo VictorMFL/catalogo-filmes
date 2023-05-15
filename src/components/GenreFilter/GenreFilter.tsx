@@ -2,7 +2,7 @@ import React from "react";
 
 import axios from "axios";
 
-import { autorizacao } from "../../api/api";
+import { authorization } from "../../api/api";
 
 import { DataProps } from "../../interface/interface";
 
@@ -10,9 +10,9 @@ import Header from "../Header/Header";
 
 import { Link } from "react-router-dom";
 
-import styles from './FiltroCategoria.module.css'
+import styles from './GenreFilter.module.css'
 
-const FiltroCategoria = () => {
+const GenreFilter = () => {
   const [data, setData] = React.useState<DataProps[]>([]);
   const [hoveredId, setHoveredId] = React.useState<number | null>(null);
 
@@ -25,11 +25,11 @@ const FiltroCategoria = () => {
   };
 
   async function get() {
-    const idGenero = window.localStorage.getItem("Categoria");
+    const idGenre = window.localStorage.getItem("Genre");
     try {
       const response = await axios.get(
-        `https://api.themoviedb.org/3/discover/movie?&with_genres=${idGenero}&language=pt-BR`,
-        autorizacao
+        `https://api.themoviedb.org/3/discover/movie?&with_genres=${idGenre}&language=pt-BR`,
+        authorization
       );
       const data = response.data;
       setData([data]);
@@ -52,7 +52,7 @@ const FiltroCategoria = () => {
           {i.results.map((res) => (
             <div
             key={res.id}
-            className={styles.filme}
+            className={styles.movie}
             onMouseEnter={() => handleMouseEnter(res.id)}
             onMouseLeave={handleMouseLeave}
           >
@@ -63,11 +63,11 @@ const FiltroCategoria = () => {
             />
             <p>{res.title}</p>
             {hoveredId === res.id && (
-              <div className={styles.sobre}>
+              <div className={styles.about}>
                 <Link
                   to={`/catalogo-filmes/filme/${String(res.id)}`}
                   onClick={() =>
-                    window.localStorage.setItem("Filme", String(res.id))
+                    window.localStorage.setItem("Movie", String(res.id))
                   }
                 >
                   Ver mais
@@ -82,4 +82,4 @@ const FiltroCategoria = () => {
   );
 };
 
-export default FiltroCategoria;
+export default GenreFilter;

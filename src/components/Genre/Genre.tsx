@@ -3,22 +3,22 @@ import axios from "axios";
 
 import Header from "../Header/Header";
 
-import { autorizacao } from "../../api/api";
+import { authorization } from "../../api/api";
 
-import { CategoriaProps } from "../../interface/interface";
+import { GenreProps } from "../../interface/interface";
 
 import { Link } from "react-router-dom";
 
-import styles from "./Categoria.module.css";
+import styles from "./Genre.module.css";
 
-const Categorias = () => {
-  const [data, setData] = React.useState<CategoriaProps[]>([]);
+const Genre = () => {
+  const [data, setData] = React.useState<GenreProps[]>([]);
 
   async function get() {
     try {
       const response = await axios.get(
         "https://api.themoviedb.org/3/genre/movie/list?language=pt-br",
-        autorizacao
+        authorization
       );
       const data = response.data.genres;
       setData(data);
@@ -39,9 +39,9 @@ const Categorias = () => {
           <div key={i.id} className={styles.container}>
             <Link
               to={`/catalogo-filmes/categorias/${i.name}`}
-              className={styles.categoria}
+              className={styles.genre}
               onClick={() =>
-                window.localStorage.setItem("Categoria", String(i.id))
+                window.localStorage.setItem("Genre", String(i.id))
               }
             >
               {i.name}
@@ -52,4 +52,4 @@ const Categorias = () => {
   );
 };
 
-export default Categorias;
+export default Genre;

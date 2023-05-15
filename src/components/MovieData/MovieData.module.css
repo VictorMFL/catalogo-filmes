@@ -6,50 +6,50 @@
   background-color: aliceblue;
 }
 
-.infoIniciais {
+.initialInfo {
   display: flex;
   flex-direction: column;
 }
 
-.infoIniciais img {
+.initialInfo img {
   width: 100%;
   border-radius: 6px;
 }
 
-.infoIniciais h3 {
+.initialInfo h3 {
   padding: 1rem;
 }
 
-.infoCriadores {
+.notFound {
+  text-align: center;
+}
+
+.creatorsStudio {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.logoNaoEncontrada {
+.logoNotFound {
   font-size: 0.9rem;
   color: #d3d3d3;
 }
 
-.nomeCompany {
+.companyName {
   margin-bottom: 2rem;
 }
 
-.infoCriadores p {
+.creatorsStudio p {
   font-weight: 600;
   padding: 5px;
 }
 
-.naoEncontrado {
-  text-align: center;
-}
-
-.titleGeneros {
+.titleGenres {
   margin-top: 1rem;
 }
 
-.generos {
+.genre {
   font-weight: 500;
   text-decoration: none;
   color: #000;
@@ -57,25 +57,25 @@
   padding-left: 10px;
 }
 
-.generos:hover {
+.genre:hover {
   text-decoration: underline;
 }
 
-.sobre {
+.about {
   padding-left: 2rem;
 }
 
-.sobre p {
+.about p {
   margin-top: 10px;
   line-height: 1.3;
 }
 
-.receita {
+.revenue {
   padding-top: 2rem;
   font-weight: 700;
 }
 
-.sobreVotos {
+.containerVotes {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -83,13 +83,14 @@
   margin-top: 3rem;
 }
 
-.votos {
+.votes {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.votos > p, .votos span {
+.votes > p,
+.votes span {
   font-size: 2rem;
 }

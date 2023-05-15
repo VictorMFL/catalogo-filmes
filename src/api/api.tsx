@@ -1,4 +1,4 @@
-export const autorizacao = {
+export const authorization = {
   method: 'GET',
   headers: {
     accept: 'application/json',

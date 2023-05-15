@@ -2,29 +2,28 @@ import React from "react";
 
 import axios from "axios";
 
-import { autorizacao } from "../../api/api";
+import { authorization } from "../../api/api";
 
 import Header from "../Header/Header";
 
-import { FilmeProps } from "../../interface/interface";
+import { MovieProps } from "../../interface/interface";
 
-import styles from "./DadosFilmes.module.css";
+import styles from "./MovieData.module.css";
 
 import { Link } from "react-router-dom";
 
 import { GiPopcorn } from "react-icons/gi";
-
 import { BsFillStarFill } from "react-icons/bs";
 
-const DadosFilmes = () => {
-  const [data, setData] = React.useState<FilmeProps[]>([]);
+const MovieData = () => {
+  const [data, setData] = React.useState<MovieProps[]>([]);
 
   async function get() {
-    const idFilme = window.localStorage.getItem("Filme");
+    const idMovie = window.localStorage.getItem("Movie");
     try {
       const response = await axios.get(
-        `https://api.themoviedb.org/3/movie/${idFilme}?language=pt-BR`,
-        autorizacao
+        `https://api.themoviedb.org/3/movie/${idMovie}?language=pt-BR`,
+        authorization
       );
       const data = response.data;
       console.log(data);
@@ -44,17 +43,17 @@ const DadosFilmes = () => {
       <Header />
       {data.map((filme) => (
         <main className={styles.container}>
-          <section className={styles.infoIniciais}>
+          <section className={styles.initialInfo}>
             <img
               src={`https://image.tmdb.org/t/p/w500${filme.backdrop_path}`}
               alt={`Imagem do filme ${filme.title}`}
             />
             <h3>Estúdios da criação do filme</h3>
-            {filme.production_companies.length === 0 ? <p className={styles.naoEncontrado}>Não encontrado.</p> : null}
+            {filme.production_companies.length === 0 ? <p className={styles.notFound}>Não encontrado.</p> : null}
             {filme.production_companies.map((company) => (
-              <div key={company.id} className={styles.infoCriadores}>
+              <div key={company.id} className={styles.creatorsStudio}>
                 {company.logo_path === null ? (
-                  <p className={styles.logoNaoEncontrada}>
+                  <p className={styles.logoNotFound}>
                     Logo não encontrada.
                   </p>
                 ) : (
@@ -63,38 +62,38 @@ const DadosFilmes = () => {
                     alt={`Logo da ${company.name}`}
                   />
                 )}
-                <p className={styles.nomeCompany}>{company.name}</p>
+                <p className={styles.companyName}>{company.name}</p>
               </div>
             ))}
 
-            <h3 className={styles.titleGeneros}>Gêneros</h3>
+            <h3 className={styles.titleGenres}>Gêneros</h3>
             {filme.genres.map((gen) => (
               <Link
                 to={`/catalogo-filmes/categorias/${gen.name}`}
                 key={gen.id}
-                className={styles.generos}
+                className={styles.genre}
                 onClick={() =>
-                  window.localStorage.setItem("Categoria", String(gen.id))
+                  window.localStorage.setItem("Genre", String(gen.id))
                 }
               >
                 {gen.name}
               </Link>
             ))}
           </section>
-          <section className={styles.sobre}>
+          <section className={styles.about}>
             <h1>{filme.title}</h1>
             <p>Descrição do filme: {filme.overview}</p>
 
-            <p className={styles.receita}>Receita Divulgada: $ {filme.revenue} </p>
+            <p className={styles.revenue}>Receita Divulgada: ${filme.revenue.toLocaleString('en-US')} </p>
 
-            <div className={styles.sobreVotos}>
-              <div className={styles.votos}>
+            <div className={styles.containerVotes}>
+              <div className={styles.votes}>
                 <p>
                   Números de votos: <span>{filme.vote_count}</span>
                 </p>
                 <GiPopcorn size={50} color="red" />
               </div>
-              <div className={styles.votos}>
+              <div className={styles.votes}>
                 <p>
                   Média dos votos: <span>{filme.vote_average}</span>
                 </p>
@@ -108,4 +107,4 @@ const DadosFilmes = () => {
   );
 };
 
-export default DadosFilmes;
+export default MovieData;
