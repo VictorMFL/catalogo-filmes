@@ -15,7 +15,7 @@ const App = () => {
     <div>
       <Header />
       <Home data={data} setData={setData} />
-      <Footer setData={setData} />
+      {data.length > 0 ? <Footer setData={setData} /> : null}
     </div>
   );
 };

@@ -12,9 +12,16 @@ import { Link } from "react-router-dom";
 
 import styles from './GenreFilter.module.css'
 
+// Tela de Carregamento
+import Login from "../LoginPage/Login";
+
+import { PaginationControl } from "react-bootstrap-pagination-control";
+
 const GenreFilter = () => {
   const [data, setData] = React.useState<DataProps[]>([]);
   const [hoveredId, setHoveredId] = React.useState<number | null>(null);
+  const [pageNum, setPageNum] = React.useState(1)
+  const [login, setLogin] = React.useState(true)
 
   const handleMouseEnter = (id: number) => {
     setHoveredId(id);
@@ -23,12 +30,13 @@ const GenreFilter = () => {
   const handleMouseLeave = () => {
     setHoveredId(null);
   };
-
+  
   async function get() {
     const idGenre = window.localStorage.getItem("Genre");
+    const page = String(pageNum)
     try {
       const response = await axios.get(
-        `https://api.themoviedb.org/3/discover/movie?&with_genres=${idGenre}&language=pt-BR`,
+        `https://api.themoviedb.org/3/discover/movie?&with_genres=${idGenre}&language=pt-BR&page=${page}`,
         authorization
       );
       const data = response.data;
@@ -36,14 +44,16 @@ const GenreFilter = () => {
       console.log(data);
     } catch (error) {
       console.log(error);
+    } finally {
+      setLogin(false)
     }
   }
 
   React.useEffect(() => {
     get();
-  }, []);
+  }, [pageNum]);
 
-  if (data.length === 0) return null;
+  if (login) return <Login />;
   return (
     <div>
       <Header />
@@ -78,6 +88,18 @@ const GenreFilter = () => {
           ))}
         </div>
       ))}
+       <footer>
+      <PaginationControl
+        page={pageNum}
+        between={4}
+        total={500}
+        limit={1}
+        changePage={(page) => {
+          setPageNum(page);
+        }}
+        ellipsis={1}
+      />
+    </footer>
     </div>
   );
 };

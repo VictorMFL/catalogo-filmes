@@ -1,0 +1,21 @@
+.container {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container span {
+  width: 5rem;
+  height: 5rem;
+  border: 10px #000 solid;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 0.9s infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}

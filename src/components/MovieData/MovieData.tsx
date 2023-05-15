@@ -15,8 +15,12 @@ import { Link } from "react-router-dom";
 import { GiPopcorn } from "react-icons/gi";
 import { BsFillStarFill } from "react-icons/bs";
 
+// Tela de Carregamento
+import Login from "../LoginPage/Login";
+
 const MovieData = () => {
   const [data, setData] = React.useState<MovieProps[]>([]);
+  const [login, setLogin] = React.useState(true);
 
   async function get() {
     const idMovie = window.localStorage.getItem("Movie");
@@ -30,6 +34,8 @@ const MovieData = () => {
       setData([data]);
     } catch (error) {
       console.log(error);
+    } finally {
+      setLogin(false);
     }
   }
 
@@ -37,7 +43,7 @@ const MovieData = () => {
     get();
   }, []);
 
-  if (data.length === 0) return null;
+  if (login) return <Login />;
   return (
     <>
       <Header />
@@ -49,13 +55,13 @@ const MovieData = () => {
               alt={`Imagem do filme ${filme.title}`}
             />
             <h3>Estúdios da criação do filme</h3>
-            {filme.production_companies.length === 0 ? <p className={styles.notFound}>Não encontrado.</p> : null}
+            {filme.production_companies.length === 0 ? (
+              <p className={styles.notFound}>Não encontrado.</p>
+            ) : null}
             {filme.production_companies.map((company) => (
               <div key={company.id} className={styles.creatorsStudio}>
                 {company.logo_path === null ? (
-                  <p className={styles.logoNotFound}>
-                    Logo não encontrada.
-                  </p>
+                  <p className={styles.logoNotFound}>Logo não encontrada.</p>
                 ) : (
                   <img
                     src={`https://image.tmdb.org/t/p/w500${company.logo_path}`}
@@ -84,7 +90,9 @@ const MovieData = () => {
             <h1>{filme.title}</h1>
             <p>Descrição do filme: {filme.overview}</p>
 
-            <p className={styles.revenue}>Receita Divulgada: ${filme.revenue.toLocaleString('en-US')} </p>
+            <p className={styles.revenue}>
+              Receita Divulgada: ${filme.revenue.toLocaleString("en-US")}{" "}
+            </p>
 
             <div className={styles.containerVotes}>
               <div className={styles.votes}>

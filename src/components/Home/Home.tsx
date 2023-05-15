@@ -12,6 +12,9 @@ import { DataProps } from "../../interface/interface";
 
 import { Link } from "react-router-dom";
 
+// Tela de Carregamento
+import Login from "../LoginPage/Login";
+
 type StateProps = {
   data: DataProps[];
   setData: React.Dispatch<React.SetStateAction<DataProps[]>>;
@@ -20,6 +23,7 @@ type StateProps = {
 const Home = ({ data, setData }: StateProps) => {
   const [hoveredId, setHoveredId] = React.useState<number | null>(null);
   const [page, setPage] = React.useState(1);
+  const [login, setLogin] = React.useState(true);
 
   const handleMouseEnter = (id: number) => {
     setHoveredId(id);
@@ -41,16 +45,16 @@ const Home = ({ data, setData }: StateProps) => {
       console.log(data);
     } catch (error) {
       console.log(error);
+    } finally {
+      setLogin(false);
     }
   }
 
   React.useEffect(() => {
     get();
-    localStorage.removeItem('Filme')
-    localStorage.removeItem('Categoria')
   }, []);
 
-  if (data.length === 0) return null;
+  if (login) return <Login />;
   return (
     <>
       {data.map((i) => (
