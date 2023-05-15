@@ -75,6 +75,10 @@
   font-weight: 700;
 }
 
+.runtime {
+  font-weight: 700;
+}
+
 .containerVotes {
   width: 100%;
   display: flex;

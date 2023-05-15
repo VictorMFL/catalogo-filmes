@@ -94,6 +94,8 @@ const MovieData = () => {
               Receita Divulgada: ${filme.revenue.toLocaleString("en-US")}{" "}
             </p>
 
+            <p className={styles.runtime}>Duração do filme: {filme.runtime} minutos</p>
+
             <div className={styles.containerVotes}>
               <div className={styles.votes}>
                 <p>
