@@ -46,6 +46,8 @@ const Home = ({ data, setData }: StateProps) => {
 
   React.useEffect(() => {
     get();
+    localStorage.removeItem('Filme')
+    localStorage.removeItem('Categoria')
   }, []);
 
   if (data.length === 0) return null;
