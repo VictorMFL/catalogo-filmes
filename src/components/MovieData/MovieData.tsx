@@ -48,7 +48,7 @@ const MovieData = () => {
     <>
       <Header />
       {data.map((filme) => (
-        <main className={styles.container}>
+        <main className={styles.container} key={filme.id}>
           <section className={styles.initialInfo}>
             <img
               src={`https://image.tmdb.org/t/p/w500${filme.backdrop_path}`}
