@@ -72,19 +72,22 @@ const MovieData = () => {
               </div>
             ))}
 
-            <h3 className={styles.titleGenres}>Gêneros</h3>
-            {filme.genres.map((gen) => (
-              <Link
-                to={`/catalogo-filmes/categorias/${gen.name}`}
-                key={gen.id}
-                className={styles.genre}
-                onClick={() =>
-                  window.localStorage.setItem("Genre", String(gen.id))
-                }
-              >
-                {gen.name}
-              </Link>
-            ))}
+            <div className={styles.containerGenres}>
+              <h3 className={styles.titleGenres}>Gêneros</h3>
+              {filme.genres.map((gen) => (
+               <div key={gen.id} className={styles.h}>
+                 <Link
+                  to={`/catalogo-filmes/categorias/${gen.name}`}
+                  className={styles.genre}
+                  onClick={() =>
+                    window.localStorage.setItem("Genre", String(gen.id))
+                  }
+                >
+                  {gen.name}
+                </Link>
+               </div>
+              ))}
+            </div>
           </section>
           <section className={styles.about}>
             <h1>{filme.title}</h1>
@@ -94,7 +97,9 @@ const MovieData = () => {
               Receita Divulgada: ${filme.revenue.toLocaleString("en-US")}{" "}
             </p>
 
-            <p className={styles.runtime}>Duração do filme: {filme.runtime} minutos</p>
+            <p className={styles.runtime}>
+              Duração do filme: {filme.runtime} minutos
+            </p>
 
             <div className={styles.containerVotes}>
               <div className={styles.votes}>

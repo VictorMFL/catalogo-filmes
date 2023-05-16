@@ -12,7 +12,7 @@ body {
 /* Footer */
 footer {
   height: 8rem;
-  background-color: #d3d3d3;
+  background-color: #5a5b7b;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,7 +29,7 @@ ul {
 
 ul li {
   padding: 10px;
-  background-color: #09b1ed;
+  background-color: #206dd4;
   border-radius: 6px;
 }
 

@@ -1,7 +1,8 @@
 .header {
   height: 5rem;
   padding: 0 5rem;
-  background-color: #d3d3d3;
+  background-color: #454665;
+  color: #fff;
   display: grid;
   place-items: center;
   grid-template-columns: repeat(4, 1fr);
@@ -13,9 +14,12 @@
 
 .header p {
   font-weight: bold;
+  font-family: 'Lato';
 }
 
 .header a {
   text-decoration: none;
-  color: #000;
+  color: #fff;
+  font-family: 'Roboto';
+  font-weight: 900;
 }
