@@ -22,8 +22,9 @@ type StateProps = {
 
 const Home = ({ data, setData }: StateProps) => {
   const [hoveredId, setHoveredId] = React.useState<number | null>(null);
-  const [page, setPage] = React.useState(1);
   const [login, setLogin] = React.useState(true);
+
+  const page = 1
 
   const handleMouseEnter = (id: number) => {
     setHoveredId(id);
@@ -42,7 +43,6 @@ const Home = ({ data, setData }: StateProps) => {
       );
       const data = response.data;
       setData([data]);
-      console.log(data);
     } catch (error) {
       console.log(error);
     } finally {

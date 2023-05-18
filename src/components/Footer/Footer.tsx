@@ -23,7 +23,6 @@ const Footer = ({ setData }: PageNumProps) => {
       );
       const data = response.data;
       setData([data]);
-      console.log(data);
       window.scrollTo(0, 0); // rolamento da página para o topo
     } catch (error) {
       console.log(error);

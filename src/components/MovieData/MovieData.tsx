@@ -30,7 +30,6 @@ const MovieData = () => {
         authorization
       );
       const data = response.data;
-      console.log(data);
       setData([data]);
     } catch (error) {
       console.log(error);
