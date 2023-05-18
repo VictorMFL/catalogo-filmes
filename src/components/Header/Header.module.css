@@ -1,14 +1,15 @@
 .header {
+  width: 100%;
   height: 5rem;
   padding: 0 5rem;
   background-color: #454665;
   color: #fff;
   display: grid;
   place-items: center;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   align-items: center;
   position: fixed;
-  top: 0;
+  top: -1px;
   z-index: 100;
 }
 
@@ -22,4 +23,39 @@
   color: #fff;
   font-family: 'Roboto';
   font-weight: 900;
+}
+
+@media(max-width: 900px) {
+  .header {
+    padding: 0 3rem;
+  }
+
+  .header p {
+    font-size: 0.8rem;
+  }
+
+  header a {
+    font-size: 1.4rem;
+  }
+}
+
+@media(max-width: 600px) {
+  .header {
+    padding: 0 1rem;
+  }
+
+  .header {
+    width: 100%;
+  }
+  .header p {
+    font-size: 0.6rem;
+  }
+
+  header a {
+    font-size: 1rem;
+  }
+
+  .header span {
+    display: none;
+  }
 }

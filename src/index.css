@@ -53,3 +53,29 @@ span {
   font-weight: bold;
   font-size: 1.1rem;
 }
+
+@media(max-width: 900px){  
+  ul {
+    padding: 0 3rem;
+  }
+}
+
+@media(max-width: 700px){  
+  ul {
+    padding: 0 2rem;
+  }
+}
+
+@media(max-width: 400px){  
+  footer {
+    height: 6rem;
+  }
+
+  ul {
+    padding: 0 1rem;
+  }
+
+  ul li {
+    padding: 8px;
+  }
+}

@@ -41,3 +41,16 @@
 .imgCartaz:hover .about {
   display: block;
 }
+
+@media(max-width: 900px) {
+  .cartaz {
+    grid-template-columns: 1fr 1fr;
+    padding: 1rem;
+  }
+}
+
+@media(max-width: 600px) {
+  .cartaz {
+    grid-template-columns: 1fr;
+  }
+}

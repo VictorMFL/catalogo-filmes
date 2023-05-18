@@ -18,9 +18,6 @@ const Header = () => {
           Categorias
         </Link>
       </h2>
-      <form>
-        <input type="text" placeholder="pesquisa" />
-      </form>
     </header>
   );
 };

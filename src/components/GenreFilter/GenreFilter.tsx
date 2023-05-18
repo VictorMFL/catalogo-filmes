@@ -17,11 +17,31 @@ import Login from "../LoginPage/Login";
 
 import { PaginationControl } from "react-bootstrap-pagination-control";
 
+// Hook para mudar o footer no mobile
+const useMedia = (media: string) => {
+  const [match, setMatch] = React.useState<boolean>()
+  React.useEffect(() => {
+    function changeMatch() {
+      const {matches} = window.matchMedia(media)
+      setMatch(matches)
+    }
+    changeMatch()
+    window.addEventListener('resize', changeMatch)
+    return () => {
+      window.removeEventListener('resize', changeMatch)
+    }
+  }, [media])
+
+  return match
+}
+
 const GenreFilter = () => {
   const [data, setData] = React.useState<DataProps[]>([]);
   const [hoveredId, setHoveredId] = React.useState<number | null>(null);
   const [pageNum, setPageNum] = React.useState(1)
   const [login, setLogin] = React.useState(true)
+
+  const mobile = useMedia('(max-width: 700px)')
 
   const handleMouseEnter = (id: number) => {
     setHoveredId(id);
@@ -91,7 +111,7 @@ const GenreFilter = () => {
        <footer>
       <PaginationControl
         page={pageNum}
-        between={4}
+        between={mobile ? 2 : 4}
         total={500}
         limit={1}
         changePage={(page) => {
