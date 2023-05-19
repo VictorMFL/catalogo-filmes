@@ -53,6 +53,7 @@ const MovieData = () => {
               src={`https://image.tmdb.org/t/p/w500${filme.backdrop_path}`}
               alt={`Imagem do filme ${filme.title}`}
             />
+            <div className={styles.containerCompany}>
             <h3>Estúdios da criação do filme</h3>
             {filme.production_companies.length === 0 ? (
               <p className={styles.notFound}>Não encontrado.</p>
@@ -70,6 +71,7 @@ const MovieData = () => {
                 <p className={styles.companyName}>{company.name}</p>
               </div>
             ))}
+            </div>
 
             <div className={styles.containerGenres}>
               <h3 className={styles.titleGenres}>Gêneros</h3>

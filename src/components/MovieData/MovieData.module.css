@@ -91,8 +91,8 @@
 
 .containerVotes {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   padding: 0 5rem;
   margin-top: 3rem;
 }
@@ -106,5 +106,74 @@
 
 .votes > p,
 .votes span {
-  font-size: 2rem;
+  font-size: 1.8rem;
+}
+
+@media (max-width: 1200px) {
+  .containerVotes {
+    padding: 0;
+  }
+
+  .votes > p,
+  .votes span {
+    font-size: 1.5rem;
+  }
+}
+
+@media(max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .initialInfo {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: 3rem;
+  }
+
+  .creatorsStudio > img {
+    max-width: 20rem;
+    max-height: 15rem;
+  }
+
+  .containerCompany {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-area: 2/1;
+    margin-top: 1rem;
+  }
+
+  .containerGenres {
+    grid-area: 3/1;
+  }
+
+  .about {
+    grid-area: 1/1;
+  }
+}
+
+@media(max-width: 600px) {
+  .about > h1 {
+    font-size: 1.4rem;
+  }
+
+  .about {
+    padding-left: 0;
+  }
+
+  .about > p {
+    font-size: 0.9rem;
+  }
+
+  .containerVotes {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 2rem;
+  }
+
+  .votes p,
+  .votes span {
+    font-size: 1.3rem;
+  }
 }
