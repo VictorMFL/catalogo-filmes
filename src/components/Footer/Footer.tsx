@@ -5,7 +5,7 @@ import { DataProps } from "../../interface/interface";
 
 import axios from "axios";
 
-import { authorization } from "../../api/api";
+import { authorization } from "../../apis/api";
 
 type PageNumProps = {
   setData: React.Dispatch<React.SetStateAction<DataProps[]>>;

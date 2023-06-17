@@ -5,7 +5,7 @@ import axios from "axios";
 import styles from "./Home.module.css";
 
 // Api
-import { authorization } from "../../api/api";
+import { authorization } from "../../apis/api";
 
 // Interface
 import { DataProps } from "../../interface/interface";

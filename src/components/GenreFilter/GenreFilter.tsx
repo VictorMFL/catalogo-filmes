@@ -2,7 +2,7 @@ import React from "react";
 
 import axios from "axios";
 
-import { authorization } from "../../api/api";
+import { authorization } from "../../apis/api";
 
 import { DataProps } from "../../interface/interface";
 
