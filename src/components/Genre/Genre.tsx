@@ -3,7 +3,7 @@ import axios from "axios";
 
 import Header from "../Header/Header";
 
-import { authorization } from "../../apis/api";
+import { authorization } from "../../api/api";
 
 import { GenreProps } from "../../interface/interface";
 
