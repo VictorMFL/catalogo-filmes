@@ -9,8 +9,6 @@ import { GenreProps } from "../../interface/interface";
 
 import { Link } from "react-router-dom";
 
-import styles from "./Genre.module.css";
-
 const Genre = () => {
   const [data, setData] = React.useState<GenreProps[]>([]);
 
@@ -34,20 +32,23 @@ const Genre = () => {
   return (
     <>
       <Header />
+      <main className="calc-padding-top">
       {data &&
         data.map((i) => (
-          <div key={i.id} className={styles.container}>
+          <div
+            key={i.id}
+            className="flex flex-col justify-center items-center bg-gray"
+          >
             <Link
               to={`/catalogo-filmes/categorias/${i.name}`}
-              className={styles.genre}
-              onClick={() =>
-                window.localStorage.setItem("Genre", String(i.id))
-              }
+              className="text-black my-3 last:mb-6 text-2xl font-semibold bg-white w-full text-center p-3"
+              onClick={() => window.localStorage.setItem("Genre", String(i.id))}
             >
               {i.name}
             </Link>
           </div>
         ))}
+      </main>
     </>
   );
 };

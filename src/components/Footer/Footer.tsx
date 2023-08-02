@@ -1,38 +1,24 @@
 import React from "react";
 
 import { PaginationControl } from "react-bootstrap-pagination-control";
+
 import { DataProps } from "../../interface/interface";
 
 import axios from "axios";
 
 import { authorization } from "../../api/api";
 
+// hook que verifica o tamanho da tela
+import useMedia from "../../hooks/useMedia";
+
 type PageNumProps = {
   setData: React.Dispatch<React.SetStateAction<DataProps[]>>;
 };
 
-// Hook para mudar o footer no mobile
-const useMedia = (media: string) => {
-  const [match, setMatch] = React.useState<boolean>()
-  React.useEffect(() => {
-    function changeMatch() {
-      const {matches} = window.matchMedia(media)
-      setMatch(matches)
-    }
-    changeMatch()
-    window.addEventListener('resize', changeMatch)
-    return () => {
-      window.removeEventListener('resize', changeMatch)
-    }
-  }, [media])
-
-  return match
-}
-
-
 const Footer = ({ setData }: PageNumProps) => {
   const [pageNum, setPageNum] = React.useState(1);
 
+  // vendo se a tela é de 700px ou menos
   const mobile = useMedia('(max-width: 700px)')
 
   async function get() {
