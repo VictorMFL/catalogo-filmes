@@ -66,11 +66,11 @@ const GenreFilter = () => {
   return (
     <>
       <Header />
-      <main className="pb-4 bg-mediumGray text-white">
+      <main className="pb-4 bg-mediumGray text-white pt-24">
       {data.map((i) => (
         <div
           key={i.page}
-          className="grid grid-cols-3 px-4 gap-5 mt-1 big-tablet:grid-cols-2 big-tablet:p-4 tablet:grid-cols-1 pt-6"
+          className="grid grid-cols-3 px-4 gap-5 big-tablet:grid-cols-2 big-tablet:p-4 tablet:grid-cols-1"
         >
           {i.results.map((res) => (
             <div
