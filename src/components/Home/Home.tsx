@@ -5,9 +5,6 @@ import axios from "axios";
 // Api
 import { authorization } from "../../api/api";
 
-// Interface
-import { DataProps } from "../../interface/interface";
-
 import { Link } from "react-router-dom";
 
 // Tela de Carregamento
