@@ -8,15 +8,21 @@ import Home from "./components/Home/Home";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 
+// contexto que fica com os dados da API
+import { DataApiProvider, useDataApiContext } from "./context/DataApi";
+
 const App = () => {
-  const [data, setData] = React.useState<DataProps[]>([]);
+  // acessando o data do contexto
+  const { data } = useDataApiContext();
 
   return (
-    <div>
-      <Header />
-      <Home data={data} setData={setData} />
-      {data.length > 0 ? <Footer setData={setData} /> : null}
-    </div>
+    <>
+      <DataApiProvider>
+        <Header />
+        <Home />
+        {data && <Footer />}
+      </DataApiProvider>
+    </>
   );
 };
 

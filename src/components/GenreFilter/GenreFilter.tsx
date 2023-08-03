@@ -58,7 +58,7 @@ const GenreFilter = () => {
     }
   }
 
-  React.useEffect(() => {
+  React.useEffect(() => { 
     get();
   }, [pageNum]);
 

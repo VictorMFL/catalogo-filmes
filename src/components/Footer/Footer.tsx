@@ -11,12 +11,14 @@ import { authorization } from "../../api/api";
 // hook que verifica o tamanho da tela
 import useMedia from "../../hooks/useMedia";
 
-type PageNumProps = {
-  setData: React.Dispatch<React.SetStateAction<DataProps[]>>;
-};
+// conexto para guardar os dados da API
+import { useDataApiContext } from "../../context/DataApi";
 
-const Footer = ({ setData }: PageNumProps) => {
+const Footer = () => {
   const [pageNum, setPageNum] = React.useState(1);
+
+  // pegando o setData do contexo 
+  const {setData} = useDataApiContext()
 
   // vendo se a tela é de 700px ou menos
   const mobile = useMedia('(max-width: 700px)')
