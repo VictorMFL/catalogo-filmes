@@ -4,9 +4,9 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
-import DadosFilmes from "./components/MovieData/MovieData";
-import Categorias from "./components/Genre/Genre";
-import FiltroCategoria from "./components/GenreFilter/GenreFilter";
+import MovieData from "./components/MovieData/MovieData";
+import Genre from "./components/Genre/Genre";
+import GenreFilter from "./components/GenreFilter/GenreFilter";
 
 import "./index.css";
 
@@ -17,15 +17,15 @@ const router = createBrowserRouter([
   },
   {
     path: "/catalogo-filmes/filme/:id",
-    element: <DadosFilmes />,
+    element: <MovieData />,
   },
   {
     path: "/catalogo-filmes/categorias",
-    element: <Categorias />,
+    element: <Genre />,
   },
   {
     path: "/catalogo-filmes/categorias/:id",
-    element: <FiltroCategoria />,
+    element: <GenreFilter />,
   },
 ]);
 
